@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JundaOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="region_permit">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="permit_name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="invalid_start_time" Type="time" Precision="1" />
+    <Property Name="invalid_end_time" Type="time" Precision="1" />
+  </EntityType>
+  <EntityType Name="site_info">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="site_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="site_type" Type="tinyint" Nullable="false" />
+    <Property Name="is_deleted" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task_record">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="from_site_id" Type="int" Nullable="false" />
+    <Property Name="send_time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="schedule_type" Type="tinyint" Nullable="false" />
+    <Property Name="truck_count" Type="smallint" Nullable="false" />
+    <Property Name="auto_manual" Type="tinyint" Nullable="false" />
+    <Property Name="to_site_id" Type="int" />
+    <Property Name="permit_id" Type="int" />
+    <Property Name="task_id" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_attend_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="task_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="permit_id" Type="smallint" Nullable="false" />
+    <Property Name="site_id" Type="smallint" Nullable="false" />
+    <Property Name="auto_manual" Type="tinyint" Nullable="false" />
+    <Property Name="send_time" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_info">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="truck_license" Type="varchar" MaxLength="50" />
+    <Property Name="truck_driver_name" Type="varchar" MaxLength="50" />
+    <Property Name="join_time" Type="datetime" Nullable="false" />
+    <Property Name="truck_status" Type="tinyint" Nullable="false" />
+    <Property Name="recent_attend_time" Type="datetime" />
+    <Property Name="recent_schedule_type" Type="tinyint" />
+    <Property Name="total_attend_count_without_permit" Type="int" />
+    <Property Name="total_attend_count_with_permit" Type="int" />
+  </EntityType>
+  <EntityType Name="truck_offline_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="start_time" Type="datetime" Nullable="false" />
+    <Property Name="end_time" Type="datetime" />
+    <Property Name="offline_days_count" Type="decimal" Precision="3" Scale="1" Nullable="false" />
+    <Property Name="offline_type" Type="smallint" />
+    <Property Name="offline_invalid" Type="smallint" />
+  </EntityType>
+  <EntityType Name="truck_permit_relation">
+    <Key>
+      <PropertyRef Name="relation_id" />
+    </Key>
+    <Property Name="relation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="permit_id" Type="smallint" />
+    <Property Name="permit_join_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="truck_site_attend_statistic">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="site_id" Type="int" Nullable="false" />
+    <Property Name="attend_count_without_permit" Type="int" Nullable="false" />
+    <Property Name="attend_count_with_permit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_group">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="tinyint" Nullable="false" />
+    <Property Name="group_name" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_info">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="user_pwd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="register_time" Type="datetime" Nullable="false" />
+    <Property Name="group_id" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_log_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="log_time" Type="datetime" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="log_ip" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_site_divation”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_site_divation">
+    <Key>
+      <PropertyRef Name="max_count" />
+      <PropertyRef Name="min_count" />
+    </Key>
+    <Property Name="site_id" Type="int" />
+    <Property Name="max_count" Type="int" Nullable="false" />
+    <Property Name="min_count" Type="int" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_site_recent_task_time”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_site_recent_task_time">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="int" Nullable="false" />
+    <Property Name="send_time" Type="datetime2" Precision="7" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_task_statistics”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_task_statistics">
+    <Key>
+      <PropertyRef Name="site_id" />
+      <PropertyRef Name="total_task_count" />
+      <PropertyRef Name="total_truck_count" />
+      <PropertyRef Name="auto_task_count" />
+      <PropertyRef Name="auto_truck_count" />
+      <PropertyRef Name="manual_task_count" />
+      <PropertyRef Name="manual_truck_count" />
+    </Key>
+    <Property Name="site_id" Type="int" Nullable="false" />
+    <Property Name="total_task_count" Type="int" Nullable="false" />
+    <Property Name="total_truck_count" Type="int" Nullable="false" />
+    <Property Name="auto_task_count" Type="int" Nullable="false" />
+    <Property Name="auto_truck_count" Type="int" Nullable="false" />
+    <Property Name="manual_task_count" Type="int" Nullable="false" />
+    <Property Name="manual_truck_count" Type="int" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_truck_attend_statistics”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_truck_attend_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="truck_status" />
+      <PropertyRef Name="join_time" />
+      <PropertyRef Name="offline_day_count" />
+    </Key>
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="recent_attend_time" Type="datetime" />
+    <Property Name="recent_schedule_type" Type="tinyint" />
+    <Property Name="truck_status" Type="tinyint" Nullable="false" />
+    <Property Name="join_time" Type="datetime" Nullable="false" />
+    <Property Name="offline_day_count" Type="decimal" Precision="38" Scale="1" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_truck_offline_statistics”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_truck_offline_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="offline_count" />
+      <PropertyRef Name="offline_day" />
+    </Key>
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="offline_count" Type="int" Nullable="false" />
+    <Property Name="offline_day" Type="decimal" Precision="38" Scale="1" Nullable="false" />
+    <Property Name="recent_start_time" Type="datetime" />
+    <Property Name="recent_end_time" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“JundaOS_Test.dbo.view_truck_permit_attend_statistics”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="view_truck_permit_attend_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="permit_id" />
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="truck_id" Type="smallint" Nullable="false" />
+    <Property Name="site_count" Type="int" />
+    <Property Name="permit_id" Type="smallint" Nullable="false" />
+    <Property Name="site_id" Type="smallint" Nullable="false" />
+  </EntityType>
+  <Function Name="ClearAllScheduleData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="JundaOSModelStoreContainer">
+    <EntitySet Name="region_permit" EntityType="Self.region_permit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="site_info" EntityType="Self.site_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="task_record" EntityType="Self.task_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_attend_record" EntityType="Self.truck_attend_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_info" EntityType="Self.truck_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_offline_record" EntityType="Self.truck_offline_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_permit_relation" EntityType="Self.truck_permit_relation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_site_attend_statistic" EntityType="Self.truck_site_attend_statistic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_group" EntityType="Self.user_group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_info" EntityType="Self.user_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_log_record" EntityType="Self.user_log_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="view_site_divation" EntityType="Self.view_site_divation" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_site_divation].[site_id] AS [site_id], 
+    [view_site_divation].[max_count] AS [max_count], 
+    [view_site_divation].[min_count] AS [min_count]
+    FROM [dbo].[view_site_divation] AS [view_site_divation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_site_recent_task_time" EntityType="Self.view_site_recent_task_time" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_site_recent_task_time].[site_id] AS [site_id], 
+    [view_site_recent_task_time].[send_time] AS [send_time]
+    FROM [dbo].[view_site_recent_task_time] AS [view_site_recent_task_time]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_task_statistics" EntityType="Self.view_task_statistics" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_task_statistics].[site_id] AS [site_id], 
+    [view_task_statistics].[total_task_count] AS [total_task_count], 
+    [view_task_statistics].[total_truck_count] AS [total_truck_count], 
+    [view_task_statistics].[auto_task_count] AS [auto_task_count], 
+    [view_task_statistics].[auto_truck_count] AS [auto_truck_count], 
+    [view_task_statistics].[manual_task_count] AS [manual_task_count], 
+    [view_task_statistics].[manual_truck_count] AS [manual_truck_count]
+    FROM [dbo].[view_task_statistics] AS [view_task_statistics]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_truck_attend_statistics" EntityType="Self.view_truck_attend_statistics" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_truck_attend_statistics].[truck_id] AS [truck_id], 
+    [view_truck_attend_statistics].[recent_attend_time] AS [recent_attend_time], 
+    [view_truck_attend_statistics].[recent_schedule_type] AS [recent_schedule_type], 
+    [view_truck_attend_statistics].[truck_status] AS [truck_status], 
+    [view_truck_attend_statistics].[join_time] AS [join_time], 
+    [view_truck_attend_statistics].[offline_day_count] AS [offline_day_count]
+    FROM [dbo].[view_truck_attend_statistics] AS [view_truck_attend_statistics]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_truck_offline_statistics" EntityType="Self.view_truck_offline_statistics" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_truck_offline_statistics].[truck_id] AS [truck_id], 
+    [view_truck_offline_statistics].[offline_count] AS [offline_count], 
+    [view_truck_offline_statistics].[offline_day] AS [offline_day], 
+    [view_truck_offline_statistics].[recent_start_time] AS [recent_start_time], 
+    [view_truck_offline_statistics].[recent_end_time] AS [recent_end_time]
+    FROM [dbo].[view_truck_offline_statistics] AS [view_truck_offline_statistics]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="view_truck_permit_attend_statistics" EntityType="Self.view_truck_permit_attend_statistics" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [view_truck_permit_attend_statistics].[truck_id] AS [truck_id], 
+    [view_truck_permit_attend_statistics].[site_count] AS [site_count], 
+    [view_truck_permit_attend_statistics].[permit_id] AS [permit_id], 
+    [view_truck_permit_attend_statistics].[site_id] AS [site_id]
+    FROM [dbo].[view_truck_permit_attend_statistics] AS [view_truck_permit_attend_statistics]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

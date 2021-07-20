@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Junda_TruckArrangeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="permit_info">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="permit_name" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pre_schedule">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="int" Nullable="false" />
+    <Property Name="pre_truck_id" Type="int" Nullable="false" />
+    <Property Name="update_time" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="site_info">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="site_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="site_type" Type="tinyint" Nullable="false" />
+    <Property Name="is_deleted" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task_record">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="task_type" Type="smallint" Nullable="false" />
+    <Property Name="day_ninght" Type="smallint" Nullable="false" />
+    <Property Name="truck_count" Type="int" Nullable="false" />
+    <Property Name="from_site_id" Type="int" Nullable="false" />
+    <Property Name="to_site_id" Type="int" Nullable="false" />
+    <Property Name="permit_id" Type="int" Nullable="false" />
+    <Property Name="send_time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="operate_time" Type="datetime2" Precision="7" />
+    <Property Name="task_id" Type="bigint" Nullable="false" />
+    <Property Name="is_deleted" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_attend_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="task_id" Type="bigint" Nullable="false" />
+    <Property Name="truck_id" Type="int" Nullable="false" />
+    <Property Name="is_compensating" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_compensation">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="int" Nullable="false" />
+    <Property Name="compensation_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_info">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_num" Type="int" Nullable="false" />
+    <Property Name="driver_name" Type="varchar" MaxLength="255" />
+    <Property Name="truck_state" Type="smallint" Nullable="false" />
+    <Property Name="truck_license" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="truck_offline_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_id" Type="int" Nullable="false" />
+    <Property Name="start_time" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="end_time" Type="datetime2" Precision="7" />
+    <Property Name="duration" Type="int" />
+  </EntityType>
+  <EntityType Name="truck_permit_relation">
+    <Key>
+      <PropertyRef Name="relation_id" />
+    </Key>
+    <Property Name="relation_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="truck_id" Type="int" Nullable="false" />
+    <Property Name="permit_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_info">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="group" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="login_time" Type="datetime2" Precision="7" />
+    <Property Name="logout_time" Type="datetime2" Precision="7" />
+    <Property Name="login_ip" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="Junda_TruckArrangeModelStoreContainer">
+    <EntitySet Name="permit_info" EntityType="Self.permit_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pre_schedule" EntityType="Self.pre_schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="site_info" EntityType="Self.site_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="task_record" EntityType="Self.task_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_attend_record" EntityType="Self.truck_attend_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_compensation" EntityType="Self.truck_compensation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_info" EntityType="Self.truck_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_offline_record" EntityType="Self.truck_offline_record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="truck_permit_relation" EntityType="Self.truck_permit_relation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_info" EntityType="Self.user_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_record" EntityType="Self.user_record" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

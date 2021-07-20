@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Junda_TruckArrangeModelStoreContainer" CdmEntityContainer="JundaOSEntities">
+    <EntitySetMapping Name="permit_info">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.permit_info">
+        <MappingFragment StoreEntitySet="permit_info">
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="permit_name" ColumnName="permit_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pre_schedule">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.pre_schedule">
+        <MappingFragment StoreEntitySet="pre_schedule">
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="pre_truck_id" ColumnName="pre_truck_id" />
+          <ScalarProperty Name="update_time" ColumnName="update_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="site_info">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.site_info">
+        <MappingFragment StoreEntitySet="site_info">
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+          <ScalarProperty Name="site_name" ColumnName="site_name" />
+          <ScalarProperty Name="site_type" ColumnName="site_type" />
+          <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_attend_record">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.truck_attend_record">
+        <MappingFragment StoreEntitySet="truck_attend_record">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="is_compensating" ColumnName="is_compensating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_compensation">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.truck_compensation">
+        <MappingFragment StoreEntitySet="truck_compensation">
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="compensation_count" ColumnName="compensation_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_info">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.truck_info">
+        <MappingFragment StoreEntitySet="truck_info">
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="truck_num" ColumnName="truck_num" />
+          <ScalarProperty Name="driver_name" ColumnName="driver_name" />
+          <ScalarProperty Name="truck_state" ColumnName="truck_state" />
+          <ScalarProperty Name="truck_license" ColumnName="truck_license" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_offline_record">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.truck_offline_record">
+        <MappingFragment StoreEntitySet="truck_offline_record">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_permit_relation">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.truck_permit_relation">
+        <MappingFragment StoreEntitySet="truck_permit_relation">
+          <ScalarProperty Name="relation_id" ColumnName="relation_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_info">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.user_info">
+        <MappingFragment StoreEntitySet="user_info">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="group" ColumnName="group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_record">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.user_record">
+        <MappingFragment StoreEntitySet="user_record">
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="login_time" ColumnName="login_time" />
+          <ScalarProperty Name="logout_time" ColumnName="logout_time" />
+          <ScalarProperty Name="login_ip" ColumnName="login_ip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="task_record">
+      <EntityTypeMapping TypeName="Junda_TruckArrangeModel.task_record">
+        <MappingFragment StoreEntitySet="task_record">
+          <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+          <ScalarProperty Name="operate_time" ColumnName="operate_time" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="send_time" ColumnName="send_time" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="to_site_id" ColumnName="to_site_id" />
+          <ScalarProperty Name="from_site_id" ColumnName="from_site_id" />
+          <ScalarProperty Name="truck_count" ColumnName="truck_count" />
+          <ScalarProperty Name="day_ninght" ColumnName="day_ninght" />
+          <ScalarProperty Name="task_type" ColumnName="task_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

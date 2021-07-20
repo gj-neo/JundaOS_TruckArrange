@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JundaOSModelStoreContainer" CdmEntityContainer="JundaOSEntities">
+    <EntitySetMapping Name="region_permit">
+      <EntityTypeMapping TypeName="JundaOSModel.region_permit">
+        <MappingFragment StoreEntitySet="region_permit">
+          <ScalarProperty Name="invalid_end_time" ColumnName="invalid_end_time" />
+          <ScalarProperty Name="invalid_start_time" ColumnName="invalid_start_time" />
+          <ScalarProperty Name="permit_name" ColumnName="permit_name" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="site_info">
+      <EntityTypeMapping TypeName="JundaOSModel.site_info">
+        <MappingFragment StoreEntitySet="site_info">
+          <ScalarProperty Name="is_deleted" ColumnName="is_deleted" />
+          <ScalarProperty Name="site_type" ColumnName="site_type" />
+          <ScalarProperty Name="site_name" ColumnName="site_name" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="task_record">
+      <EntityTypeMapping TypeName="JundaOSModel.task_record">
+        <MappingFragment StoreEntitySet="task_record">
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="to_site_id" ColumnName="to_site_id" />
+          <ScalarProperty Name="auto_manual" ColumnName="auto_manual" />
+          <ScalarProperty Name="truck_count" ColumnName="truck_count" />
+          <ScalarProperty Name="schedule_type" ColumnName="schedule_type" />
+          <ScalarProperty Name="send_time" ColumnName="send_time" />
+          <ScalarProperty Name="from_site_id" ColumnName="from_site_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_attend_record">
+      <EntityTypeMapping TypeName="JundaOSModel.truck_attend_record">
+        <MappingFragment StoreEntitySet="truck_attend_record">
+          <ScalarProperty Name="send_time" ColumnName="send_time" />
+          <ScalarProperty Name="auto_manual" ColumnName="auto_manual" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="record_id" ColumnName="record_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_info">
+      <EntityTypeMapping TypeName="JundaOSModel.truck_info">
+        <MappingFragment StoreEntitySet="truck_info">
+          <ScalarProperty Name="total_attend_count_with_permit" ColumnName="total_attend_count_with_permit" />
+          <ScalarProperty Name="total_attend_count_without_permit" ColumnName="total_attend_count_without_permit" />
+          <ScalarProperty Name="recent_schedule_type" ColumnName="recent_schedule_type" />
+          <ScalarProperty Name="recent_attend_time" ColumnName="recent_attend_time" />
+          <ScalarProperty Name="truck_status" ColumnName="truck_status" />
+          <ScalarProperty Name="join_time" ColumnName="join_time" />
+          <ScalarProperty Name="truck_driver_name" ColumnName="truck_driver_name" />
+          <ScalarProperty Name="truck_license" ColumnName="truck_license" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_offline_record">
+      <EntityTypeMapping TypeName="JundaOSModel.truck_offline_record">
+        <MappingFragment StoreEntitySet="truck_offline_record">
+          <ScalarProperty Name="offline_invalid" ColumnName="offline_invalid" />
+          <ScalarProperty Name="offline_type" ColumnName="offline_type" />
+          <ScalarProperty Name="offline_days_count" ColumnName="offline_days_count" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="record_id" ColumnName="record_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_permit_relation">
+      <EntityTypeMapping TypeName="JundaOSModel.truck_permit_relation">
+        <MappingFragment StoreEntitySet="truck_permit_relation">
+          <ScalarProperty Name="permit_join_time" ColumnName="permit_join_time" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+          <ScalarProperty Name="relation_id" ColumnName="relation_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="truck_site_attend_statistic">
+      <EntityTypeMapping TypeName="JundaOSModel.truck_site_attend_statistic">
+        <MappingFragment StoreEntitySet="truck_site_attend_statistic">
+          <ScalarProperty Name="attend_count_with_permit" ColumnName="attend_count_with_permit" />
+          <ScalarProperty Name="attend_count_without_permit" ColumnName="attend_count_without_permit" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_group">
+      <EntityTypeMapping TypeName="JundaOSModel.user_group">
+        <MappingFragment StoreEntitySet="user_group">
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_info">
+      <EntityTypeMapping TypeName="JundaOSModel.user_info">
+        <MappingFragment StoreEntitySet="user_info">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="register_time" ColumnName="register_time" />
+          <ScalarProperty Name="user_pwd" ColumnName="user_pwd" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_log_record">
+      <EntityTypeMapping TypeName="JundaOSModel.user_log_record">
+        <MappingFragment StoreEntitySet="user_log_record">
+          <ScalarProperty Name="log_ip" ColumnName="log_ip" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="log_time" ColumnName="log_time" />
+          <ScalarProperty Name="record_id" ColumnName="record_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_site_divation">
+      <EntityTypeMapping TypeName="JundaOSModel.view_site_divation">
+        <MappingFragment StoreEntitySet="view_site_divation">
+          <ScalarProperty Name="min_count" ColumnName="min_count" />
+          <ScalarProperty Name="max_count" ColumnName="max_count" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_task_statistics">
+      <EntityTypeMapping TypeName="JundaOSModel.view_task_statistics">
+        <MappingFragment StoreEntitySet="view_task_statistics">
+          <ScalarProperty Name="manual_truck_count" ColumnName="manual_truck_count" />
+          <ScalarProperty Name="manual_task_count" ColumnName="manual_task_count" />
+          <ScalarProperty Name="auto_truck_count" ColumnName="auto_truck_count" />
+          <ScalarProperty Name="auto_task_count" ColumnName="auto_task_count" />
+          <ScalarProperty Name="total_truck_count" ColumnName="total_truck_count" />
+          <ScalarProperty Name="total_task_count" ColumnName="total_task_count" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_truck_attend_statistics">
+      <EntityTypeMapping TypeName="JundaOSModel.view_truck_attend_statistics">
+        <MappingFragment StoreEntitySet="view_truck_attend_statistics">
+          <ScalarProperty Name="offline_day_count" ColumnName="offline_day_count" />
+          <ScalarProperty Name="join_time" ColumnName="join_time" />
+          <ScalarProperty Name="truck_status" ColumnName="truck_status" />
+          <ScalarProperty Name="recent_schedule_type" ColumnName="recent_schedule_type" />
+          <ScalarProperty Name="recent_attend_time" ColumnName="recent_attend_time" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_site_recent_task_time">
+      <EntityTypeMapping TypeName="JundaOSModel.view_site_recent_task_time">
+        <MappingFragment StoreEntitySet="view_site_recent_task_time">
+          <ScalarProperty Name="send_time" ColumnName="send_time" />
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ClearAllScheduleData" FunctionName="JundaOSModel.Store.ClearAllScheduleData" />
+    <EntitySetMapping Name="view_truck_permit_attend_statistics">
+      <EntityTypeMapping TypeName="JundaOSModel.view_truck_permit_attend_statistics">
+        <MappingFragment StoreEntitySet="view_truck_permit_attend_statistics">
+          <ScalarProperty Name="site_id" ColumnName="site_id" />
+          <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+          <ScalarProperty Name="site_count" ColumnName="site_count" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_truck_offline_statistics">
+      <EntityTypeMapping TypeName="JundaOSModel.view_truck_offline_statistics">
+        <MappingFragment StoreEntitySet="view_truck_offline_statistics">
+          <ScalarProperty Name="recent_end_time" ColumnName="recent_end_time" />
+          <ScalarProperty Name="recent_start_time" ColumnName="recent_start_time" />
+          <ScalarProperty Name="offline_day" ColumnName="offline_day" />
+          <ScalarProperty Name="offline_count" ColumnName="offline_count" />
+          <ScalarProperty Name="truck_id" ColumnName="truck_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

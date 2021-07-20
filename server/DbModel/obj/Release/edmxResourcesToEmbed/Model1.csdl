@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Junda_TruckArrangeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="permit_info">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="permit_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="site_info">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="site_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="site_type" Type="Byte" Nullable="false" />
+    <Property Name="is_deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_info">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_num" Type="Int32" Nullable="false" />
+    <Property Name="driver_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="truck_state" Type="Int16" Nullable="false" />
+    <Property Name="truck_license" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="truck_offline_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_id" Type="Int32" Nullable="false" />
+    <Property Name="start_time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="end_time" Type="DateTime" Precision="7" />
+    <Property Name="duration" Type="Int32" />
+  </EntityType>
+  <EntityType Name="user_info">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="group" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="login_time" Type="DateTime" Precision="7" />
+    <Property Name="logout_time" Type="DateTime" Precision="7" />
+    <Property Name="login_ip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Junda_TruckArrangeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="permit_info" EntityType="Self.permit_info" />
+    <EntitySet Name="site_info" EntityType="Self.site_info" />
+    <EntitySet Name="truck_info" EntityType="Self.truck_info" />
+    <EntitySet Name="truck_offline_record" EntityType="Self.truck_offline_record" />
+    <EntitySet Name="user_info" EntityType="Self.user_info" />
+    <EntitySet Name="user_record" EntityType="Self.user_record" />
+    <EntitySet Name="truck_permit_relation" EntityType="Junda_TruckArrangeModel.truck_permit_relation" />
+    <EntitySet Name="pre_schedule" EntityType="Junda_TruckArrangeModel.pre_schedule" />
+    <EntitySet Name="truck_compensation" EntityType="Junda_TruckArrangeModel.truck_compensation" />
+    <EntitySet Name="task_record" EntityType="Junda_TruckArrangeModel.task_record" />
+    <EntitySet Name="truck_attend_record" EntityType="Junda_TruckArrangeModel.truck_attend_record" />
+  </EntityContainer>
+  <EntityType Name="truck_permit_relation">
+    <Key>
+      <PropertyRef Name="relation_id" />
+    </Key>
+    <Property Name="relation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_id" Type="Int32" Nullable="false" />
+    <Property Name="permit_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pre_schedule">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="Int32" Nullable="false" />
+    <Property Name="pre_truck_id" Type="Int32" Nullable="false" />
+    <Property Name="update_time" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="truck_compensation">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="Int32" Nullable="false" />
+    <Property Name="compensation_count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task_record">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="task_type" Type="Int16" Nullable="false" />
+    <Property Name="day_ninght" Type="Int16" Nullable="false" />
+    <Property Name="truck_count" Type="Int32" Nullable="false" />
+    <Property Name="from_site_id" Type="Int32" Nullable="false" />
+    <Property Name="to_site_id" Type="Int32" Nullable="false" />
+    <Property Name="permit_id" Type="Int32" Nullable="false" />
+    <Property Name="send_time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="operate_time" Type="DateTime" Precision="7" />
+    <Property Name="task_id" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="truck_attend_record">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="task_id" Type="Int64" Nullable="false" />
+    <Property Name="truck_id" Type="Int32" Nullable="false" />
+    <Property Name="is_compensating" Type="Byte" Nullable="false" />
+  </EntityType>
+</Schema>

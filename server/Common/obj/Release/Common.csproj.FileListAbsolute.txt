@@ -1,0 +1,17 @@
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\bin\Release\Common.dll
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\bin\Release\Common.pdb
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\bin\Release\Newtonsoft.Json.dll
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\bin\Release\Newtonsoft.Json.xml
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\obj\Release\Common.csproj.CopyComplete
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\obj\Release\Common.dll
+D:\MyGit\JundaOS\NewWebAPI_ScheduleByOrder_0602\Common\obj\Release\Common.pdb
+D:\MyGit\JundaOS\TruckArrange_Server\Common\bin\Release\Common.dll
+D:\MyGit\JundaOS\TruckArrange_Server\Common\bin\Release\Common.pdb
+D:\MyGit\JundaOS\TruckArrange_Server\Common\bin\Release\Newtonsoft.Json.dll
+D:\MyGit\JundaOS\TruckArrange_Server\Common\bin\Release\Newtonsoft.Json.xml
+D:\MyGit\JundaOS\TruckArrange_Server\Common\obj\Release\Common.csprojAssemblyReference.cache
+D:\MyGit\JundaOS\TruckArrange_Server\Common\obj\Release\Common.csproj.CoreCompileInputs.cache
+D:\MyGit\JundaOS\TruckArrange_Server\Common\obj\Release\Common.csproj.CopyComplete
+D:\MyGit\JundaOS\TruckArrange_Server\Common\obj\Release\Common.dll
+D:\MyGit\JundaOS\TruckArrange_Server\Common\obj\Release\Common.pdb

@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JundaOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="JundaOSEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Calc_Weight">
+      <Parameter Name="send_time" Mode="In" Type="DateTime" />
+      <Parameter Name="schedule_type" Mode="In" Type="Byte" />
+    </FunctionImport>
+    <FunctionImport Name="Calc_Site_Deviation" ReturnType="Collection(JundaOSModel.Calc_Site_Deviation_Result)" />
+    <EntitySet Name="region_permit" EntityType="JundaOSModel.region_permit" />
+    <EntitySet Name="site_info" EntityType="JundaOSModel.site_info" />
+    <EntitySet Name="task_record" EntityType="JundaOSModel.task_record" />
+    <EntitySet Name="truck_attend_record" EntityType="JundaOSModel.truck_attend_record" />
+    <EntitySet Name="truck_info" EntityType="JundaOSModel.truck_info" />
+    <EntitySet Name="truck_offline_record" EntityType="JundaOSModel.truck_offline_record" />
+    <EntitySet Name="truck_permit_relation" EntityType="JundaOSModel.truck_permit_relation" />
+    <EntitySet Name="truck_site_attend_statistic" EntityType="JundaOSModel.truck_site_attend_statistic" />
+    <EntitySet Name="user_group" EntityType="JundaOSModel.user_group" />
+    <EntitySet Name="user_info" EntityType="JundaOSModel.user_info" />
+    <EntitySet Name="user_log_record" EntityType="JundaOSModel.user_log_record" />
+    <EntitySet Name="view_site_divation" EntityType="JundaOSModel.view_site_divation" />
+    <EntitySet Name="view_task_statistics" EntityType="JundaOSModel.view_task_statistics" />
+    <EntitySet Name="view_truck_attend_statistics" EntityType="JundaOSModel.view_truck_attend_statistics" />
+    <EntitySet Name="view_site_recent_task_time" EntityType="JundaOSModel.view_site_recent_task_time" />
+    <FunctionImport Name="ClearAllScheduleData" />
+    <EntitySet Name="view_truck_permit_attend_statistics" EntityType="JundaOSModel.view_truck_permit_attend_statistics" />
+    <EntitySet Name="view_truck_offline_statistics" EntityType="JundaOSModel.view_truck_offline_statistics" />
+  </EntityContainer>
+  <ComplexType Name="Calc_Site_Deviation_Result">
+    <Property Type="Int32" Name="site_id" Nullable="true" />
+    <Property Type="Int32" Name="max_count" Nullable="false" />
+    <Property Type="Int32" Name="min_count" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="region_permit">
+    <Key>
+      <PropertyRef Name="permit_id" />
+    </Key>
+    <Property Name="permit_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="permit_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="invalid_start_time" Type="Time" Precision="1" />
+    <Property Name="invalid_end_time" Type="Time" Precision="1" />
+  </EntityType>
+  <EntityType Name="site_info">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="site_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="site_type" Type="Byte" Nullable="false" />
+    <Property Name="is_deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="task_record">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="from_site_id" Type="Int32" Nullable="false" />
+    <Property Name="send_time" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="schedule_type" Type="Byte" Nullable="false" />
+    <Property Name="truck_count" Type="Int16" Nullable="false" />
+    <Property Name="auto_manual" Type="Byte" Nullable="false" />
+    <Property Name="to_site_id" Type="Int32" />
+    <Property Name="permit_id" Type="Int32" />
+    <Property Name="task_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="truck_attend_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="task_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="permit_id" Type="Int16" Nullable="false" />
+    <Property Name="site_id" Type="Int16" Nullable="false" />
+    <Property Name="auto_manual" Type="Byte" Nullable="false" />
+    <Property Name="send_time" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="truck_info">
+    <Key>
+      <PropertyRef Name="truck_id" />
+    </Key>
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="truck_license" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="truck_driver_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="join_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="truck_status" Type="Byte" Nullable="false" />
+    <Property Name="recent_attend_time" Type="DateTime" Precision="3" />
+    <Property Name="recent_schedule_type" Type="Byte" />
+    <Property Name="total_attend_count_without_permit" Type="Int32" />
+    <Property Name="total_attend_count_with_permit" Type="Int32" />
+  </EntityType>
+  <EntityType Name="truck_offline_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="end_time" Type="DateTime" Precision="3" />
+    <Property Name="offline_days_count" Type="Decimal" Nullable="false" Precision="3" Scale="1" />
+    <Property Name="offline_type" Type="Int16" />
+    <Property Name="offline_invalid" Type="Int16" />
+  </EntityType>
+  <EntityType Name="truck_permit_relation">
+    <Key>
+      <PropertyRef Name="relation_id" />
+    </Key>
+    <Property Name="relation_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="permit_id" Type="Int16" />
+    <Property Name="permit_join_time" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="truck_site_attend_statistic">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="site_id" Type="Int32" Nullable="false" />
+    <Property Name="attend_count_without_permit" Type="Int32" Nullable="false" />
+    <Property Name="attend_count_with_permit" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_group">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="Byte" Nullable="false" />
+    <Property Name="group_name" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user_info">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="user_pwd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="register_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="group_id" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user_log_record">
+    <Key>
+      <PropertyRef Name="record_id" />
+    </Key>
+    <Property Name="record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="log_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="log_ip" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="view_site_divation">
+    <Key>
+      <PropertyRef Name="max_count" />
+      <PropertyRef Name="min_count" />
+    </Key>
+    <Property Name="site_id" Type="Int32" />
+    <Property Name="max_count" Type="Int32" Nullable="false" />
+    <Property Name="min_count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="view_task_statistics">
+    <Key>
+      <PropertyRef Name="site_id" />
+      <PropertyRef Name="total_task_count" />
+      <PropertyRef Name="total_truck_count" />
+      <PropertyRef Name="auto_task_count" />
+      <PropertyRef Name="auto_truck_count" />
+      <PropertyRef Name="manual_task_count" />
+      <PropertyRef Name="manual_truck_count" />
+    </Key>
+    <Property Name="site_id" Type="Int32" Nullable="false" />
+    <Property Name="total_task_count" Type="Int32" Nullable="false" />
+    <Property Name="total_truck_count" Type="Int32" Nullable="false" />
+    <Property Name="auto_task_count" Type="Int32" Nullable="false" />
+    <Property Name="auto_truck_count" Type="Int32" Nullable="false" />
+    <Property Name="manual_task_count" Type="Int32" Nullable="false" />
+    <Property Name="manual_truck_count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="view_truck_attend_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="truck_status" />
+      <PropertyRef Name="join_time" />
+      <PropertyRef Name="offline_day_count" />
+    </Key>
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="recent_attend_time" Type="DateTime" Precision="3" />
+    <Property Name="recent_schedule_type" Type="Byte" />
+    <Property Name="truck_status" Type="Byte" Nullable="false" />
+    <Property Name="join_time" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="offline_day_count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="view_site_recent_task_time">
+    <Key>
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="site_id" Type="Int32" Nullable="false" />
+    <Property Name="send_time" Type="DateTime" Precision="7" />
+  </EntityType>
+  <EntityType Name="view_truck_permit_attend_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="permit_id" />
+      <PropertyRef Name="site_id" />
+    </Key>
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="site_count" Type="Int32" />
+    <Property Name="permit_id" Type="Int16" Nullable="false" />
+    <Property Name="site_id" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="view_truck_offline_statistics">
+    <Key>
+      <PropertyRef Name="truck_id" />
+      <PropertyRef Name="offline_count" />
+      <PropertyRef Name="offline_day" />
+    </Key>
+    <Property Name="truck_id" Type="Int16" Nullable="false" />
+    <Property Name="offline_count" Type="Int32" Nullable="false" />
+    <Property Name="offline_day" Type="Decimal" Nullable="false" Precision="38" Scale="1" />
+    <Property Name="recent_start_time" Type="DateTime" Precision="3" />
+    <Property Name="recent_end_time" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

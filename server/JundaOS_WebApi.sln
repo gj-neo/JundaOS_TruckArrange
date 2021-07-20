@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JundaOS_WebApi", "JundaOS_WebApi\JundaOS_WebApi.csproj", "{A6AEB729-A6E1-4CA6-A740-EEE9EC78115A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D0CCC2E5-9836-4A1B-9DAF-6221D33A698E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6AEB729-A6E1-4CA6-A740-EEE9EC78115A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6AEB729-A6E1-4CA6-A740-EEE9EC78115A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6AEB729-A6E1-4CA6-A740-EEE9EC78115A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6AEB729-A6E1-4CA6-A740-EEE9EC78115A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CCC2E5-9836-4A1B-9DAF-6221D33A698E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CCC2E5-9836-4A1B-9DAF-6221D33A698E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CCC2E5-9836-4A1B-9DAF-6221D33A698E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CCC2E5-9836-4A1B-9DAF-6221D33A698E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F09F7BF-37D4-4B5C-8202-8AF7A440E816}
+	EndGlobalSection
+EndGlobal
